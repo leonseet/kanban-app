@@ -1,4 +1,4 @@
-interface ColumnWithTasks {
+export interface ColumnWithTasks {
   id: number
   title: string | null
   boardId: number
@@ -23,7 +23,7 @@ interface ColumnWithTasks {
   }[]
 }
 
-interface TaskWithSubtasks {
+export interface TaskWithSubtasks {
   id: number
   title: string | null
   description: string | null
@@ -41,7 +41,7 @@ interface TaskWithSubtasks {
   }[]
 }
 
-interface CustomSubtask {
+export interface CustomSubtask {
   description: string | null
   checked: boolean
   taskId: number | null

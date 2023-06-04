@@ -24,6 +24,7 @@ import { deleteSubtask } from "@/lib/service/deleteSubtask"
 import { useDispatch, useSelector } from "react-redux"
 import { setTaskModal } from "@/app/redux/features/taskModalSlice"
 import { RootState } from "@/app/redux/store"
+import { TaskWithSubtasks, ColumnWithTasks, CustomSubtask } from "@/types"
 
 interface TaskModalProps {
   task: TaskWithSubtasks | null

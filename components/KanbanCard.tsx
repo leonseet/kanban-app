@@ -6,6 +6,7 @@ import { CSS } from "@dnd-kit/utilities"
 import TaskModal from "./TaskModal"
 import checkedCount from "@/lib/checkedCount"
 import { Subtask, Task } from "@prisma/client"
+import { TaskWithSubtasks, CustomSubtask } from "@/types"
 
 interface KanbanCardProps {
   task: TaskWithSubtasks

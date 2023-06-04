@@ -4,6 +4,7 @@ import { Button } from "./ui/button"
 import { Popover, PopoverContent, PopoverTrigger, PopoverArrow } from "@/components/ui/popover"
 import { deleteTask as deleteTaskService } from "@/lib/service/deleteTask"
 import { deleteSubtasks } from "@/lib/service/deleteSubtasks"
+import { TaskWithSubtasks } from "@/types"
 
 interface DeleteTaskPopoverProps {
   task: TaskWithSubtasks | null

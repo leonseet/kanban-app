@@ -4,6 +4,7 @@ import { FC, useEffect, useState } from "react"
 import { Checkbox } from "@/components/ui/checkbox"
 import { RxCross1 } from "react-icons/rx"
 import TextareaAutosize from "react-textarea-autosize"
+import { CustomSubtask } from "@/types"
 
 interface CheckBoxItemProps {
   index: number

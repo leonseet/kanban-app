@@ -24,6 +24,7 @@ import { deleteColumn as deleteColumnService } from "@/lib/service/deleteColumn"
 import { useRouter } from "next/navigation"
 import { useSelector } from "react-redux"
 import { RootState } from "@/app/redux/store"
+import { ColumnWithTasks, TaskWithSubtasks, CustomSubtask } from "@/types"
 
 interface KanbanBoardProps {
   board:

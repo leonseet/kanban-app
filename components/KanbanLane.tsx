@@ -10,6 +10,7 @@ import TaskModal from "./TaskModal"
 import DeleteLanePopover from "./DeleteLanePopover"
 import { useSelector } from "react-redux"
 import { RootState } from "@/app/redux/store"
+import { ColumnWithTasks, TaskWithSubtasks, CustomSubtask } from "@/types"
 
 export interface KanbanLaneProps {
   column: ColumnWithTasks
