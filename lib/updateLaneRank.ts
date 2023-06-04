@@ -1,5 +1,4 @@
-import { ColumnWithTasks } from "@/components/KanbanBoard"
-import { db } from "./db"
+import { ColumnWithTasks } from "@/types"
 import { LexoRank } from "lexorank"
 
 interface updateLaneRankProps {

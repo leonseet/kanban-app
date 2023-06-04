@@ -1,3 +1,5 @@
+import { ColumnWithTasks } from "@/types"
+
 interface findTaskByIdProps {
   id: number
   columns: ColumnWithTasks[]

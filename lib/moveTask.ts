@@ -2,6 +2,7 @@ import { Task } from "@prisma/client"
 import { updateTask } from "@/lib/service/updateTask"
 import { LexoRank } from "lexorank"
 import { arrayMove } from "@dnd-kit/sortable"
+import { ColumnWithTasks } from "@/types"
 
 interface moveTaskProps {
   columns: ColumnWithTasks[]

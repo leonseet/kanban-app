@@ -1,5 +1,6 @@
 import { LexoRank } from "lexorank"
 import { updateColumn } from "./service/updateColumn"
+import { ColumnWithTasks } from "@/types"
 
 interface moveLaneProps {
   columns: ColumnWithTasks[]
