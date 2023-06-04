@@ -1,19 +1,19 @@
-"use client"
+// "use client"
 
-import { setBoard } from "@/app/redux/features/taskOpsSlice"
-import { store } from "@/app/redux/store"
-import { FC, useRef } from "react"
+// import { setBoard } from "@/app/redux/features/taskOpsSlice"
+// import { store } from "@/app/redux/store"
+// import { FC, useRef } from "react"
 
-interface PreloaderProps {}
+// interface PreloaderProps {}
 
-const Preloader: FC<PreloaderProps> = ({ board }) => {
-  const loaded = useRef(false)
-  if (!loaded.current) {
-    store.dispatch(setBoard(board))
-    loaded.current = true
-  }
+// const Preloader: FC<PreloaderProps> = ({ board }) => {
+//   const loaded = useRef(false)
+//   if (!loaded.current) {
+//     store.dispatch(setBoard(board))
+//     loaded.current = true
+//   }
 
-  return null
-}
+//   return null
+// }
 
-export default Preloader
+// export default Preloader
