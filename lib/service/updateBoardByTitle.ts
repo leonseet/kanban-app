@@ -8,7 +8,7 @@ export async function updateBoardByTitle({
   userId: string
 }) {
   try {
-    const res = await fetch(`${process.env.VERCEL_URL}/api/board-update-by-title`, {
+    const res = await fetch(`https://${process.env.VERCEL_URL}/api/board-update-by-title`, {
       method: "POST",
       body: JSON.stringify({
         newBoardTitle,

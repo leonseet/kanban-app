@@ -12,7 +12,7 @@ export async function updateColumn({
   rank?: string
 }) {
   try {
-    const res = await fetch(`${process.env.VERCEL_URL}/api/column-update`, {
+    const res = await fetch(`https://${process.env.VERCEL_URL}/api/column-update`, {
       method: "POST",
       body: JSON.stringify({
         columnId,

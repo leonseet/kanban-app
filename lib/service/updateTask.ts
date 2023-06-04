@@ -14,7 +14,7 @@ export async function updateTask({
   rank?: string
 }) {
   try {
-    const res = await fetch(`${process.env.VERCEL_URL}/api/task-update`, {
+    const res = await fetch(`https://${process.env.VERCEL_URL}/api/task-update`, {
       method: "POST",
       body: JSON.stringify({
         title,

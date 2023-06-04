@@ -1,6 +1,6 @@
 export async function fetchTasks({ columnId }: { columnId: number }) {
   try {
-    const res = await fetch(`${process.env.VERCEL_URL}/api/task-fetch`, {
+    const res = await fetch(`https://${process.env.VERCEL_URL}/api/task-fetch`, {
       method: "POST",
       body: JSON.stringify({
         columnId,

@@ -10,7 +10,7 @@ export async function createSubtask({
   rank: string
 }) {
   try {
-    const res = await fetch(`${process.env.VERCEL_URL}/api/subtask-create`, {
+    const res = await fetch(`https://${process.env.VERCEL_URL}/api/subtask-create`, {
       method: "POST",
       body: JSON.stringify({
         description,

@@ -14,7 +14,7 @@ export async function upsertTask({
   rank?: string
 }) {
   try {
-    const res = await fetch(`${process.env.VERCEL_URL}/api/task-upsert`, {
+    const res = await fetch(`https://${process.env.VERCEL_URL}/api/task-upsert`, {
       method: "POST",
       body: JSON.stringify({
         title,
