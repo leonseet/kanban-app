@@ -1,20 +1,12 @@
-import { Inter } from "next/font/google"
-import DarkLightToggleSkeleton from "@/components/DarkLightToggleSkeleton"
-import { Button } from "@/components/ui/button"
-import dynamic from "next/dynamic"
+import { getServerSession } from "next-auth"
+import { redirect } from "next/navigation"
+import { authOptions } from "./api/auth/[...nextauth]/route"
 
-const DarkLightToggle = dynamic(() => import("@/components/DarkLightToggle"), {
-  ssr: false,
-  loading: () => <DarkLightToggleSkeleton />,
-})
-
-const inter = Inter({ subsets: ["latin"] })
-
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center gap-10 p-24">
-      <DarkLightToggle />
-      <Button>Button</Button>
-    </main>
-  )
+export default async function Home() {
+  const session = await getServerSession(authOptions)
+  if (!session) {
+    redirect("/login")
+  } else {
+    redirect("/kanban")
+  }
 }
