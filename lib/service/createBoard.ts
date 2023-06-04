@@ -8,7 +8,7 @@ export async function createBoard({
   rank: string
 }) {
   try {
-    const res = await fetch("http://localhost:3000/api/board-create", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/board-create`, {
       method: "POST",
       body: JSON.stringify({
         userId,

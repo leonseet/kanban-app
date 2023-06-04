@@ -8,7 +8,7 @@ export async function updateBoardByTitle({
   userId: string
 }) {
   try {
-    const res = await fetch("http://localhost:3000/api/board-update-by-title", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/board-update-by-title`, {
       method: "POST",
       body: JSON.stringify({
         newBoardTitle,

@@ -10,7 +10,7 @@ export async function updateUser({
   newUser?: boolean
 }) {
   try {
-    const res = await fetch("http://localhost:3000/api/user-update", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/user-update`, {
       method: "POST",
       body: JSON.stringify({
         userId,

@@ -12,7 +12,7 @@ export async function updateColumn({
   rank?: string
 }) {
   try {
-    const res = await fetch("http://localhost:3000/api/column-update", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/column-update`, {
       method: "POST",
       body: JSON.stringify({
         columnId,

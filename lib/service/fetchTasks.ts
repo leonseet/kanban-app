@@ -1,6 +1,6 @@
 export async function fetchTasks({ columnId }: { columnId: number }) {
   try {
-    const res = await fetch("http://localhost:3000/api/task-fetch", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/task-fetch`, {
       method: "POST",
       body: JSON.stringify({
         columnId,

@@ -1,6 +1,6 @@
 export async function fetchSubtasks({ taskId }: { taskId: number }) {
   try {
-    const res = await fetch("http://localhost:3000/api/subtask-fetch", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/subtask-fetch`, {
       method: "POST",
       body: JSON.stringify({
         taskId,

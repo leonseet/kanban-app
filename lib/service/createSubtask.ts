@@ -10,7 +10,7 @@ export async function createSubtask({
   rank: string
 }) {
   try {
-    const res = await fetch("http://localhost:3000/api/subtask-create", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/subtask-create`, {
       method: "POST",
       body: JSON.stringify({
         description,
