@@ -1,7 +1,7 @@
 import "@/styles/globals.css"
 import Providers from "./Providers"
 import { Toaster } from "@/components/ui/toaster"
-import Preloader from "@/components/Preloader"
+// import Preloader from "@/components/Preloader"
 
 export const metadata = {
   title: "Kanban",
