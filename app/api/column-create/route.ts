@@ -3,12 +3,11 @@ import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
   try {
-    const { title, color, boardId, rank } = await req.json()
+    const { title, boardId, rank } = await req.json()
 
     const data = await db.column.create({
       data: {
         title,
-        color,
         boardId,
         rank,
       },
@@ -19,7 +18,6 @@ export async function POST(req: Request) {
       data: {
         id: data.id,
         title: data.title,
-        color: data.color,
         boardId: data.boardId,
         rank: data.rank,
       },
