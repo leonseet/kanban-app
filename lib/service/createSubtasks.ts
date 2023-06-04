@@ -1,3 +1,5 @@
+import { CustomSubtask } from "@/types"
+
 export async function createSubtasks({ subtasks }: { subtasks: CustomSubtask[] }) {
   try {
     const res = await fetch("http://localhost:3000/api/subtasks-create", {
