@@ -1,6 +1,6 @@
 export async function deleteSubtask({ subtaskId }: { subtaskId: number }) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/subtask-delete`, {
+    const res = await fetch(`${process.env.VERCEL_URL}/api/subtask-delete`, {
       method: "POST",
       body: JSON.stringify({
         subtaskId,

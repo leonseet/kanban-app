@@ -10,7 +10,7 @@ export async function createColumn({
   rank: string
 }) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/column-create`, {
+    const res = await fetch(`${process.env.VERCEL_URL}/api/column-create`, {
       method: "POST",
       body: JSON.stringify({
         title,

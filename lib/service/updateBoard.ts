@@ -10,7 +10,7 @@ export async function updateBoard({
   rank: string
 }) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/board-update`, {
+    const res = await fetch(`${process.env.VERCEL_URL}/api/board-update`, {
       method: "POST",
       body: JSON.stringify({
         boardId,

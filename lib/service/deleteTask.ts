@@ -1,6 +1,6 @@
 export async function deleteTask({ taskId }: { taskId: number }) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/task-delete`, {
+    const res = await fetch(`${process.env.VERCEL_URL}/api/task-delete`, {
       method: "POST",
       body: JSON.stringify({
         taskId,

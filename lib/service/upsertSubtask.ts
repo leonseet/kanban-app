@@ -10,7 +10,7 @@ export async function updateSubtask({
   taskId: number
 }) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/subtask-upsert`, {
+    const res = await fetch(`${process.env.VERCEL_URL}/api/subtask-upsert`, {
       method: "POST",
       body: JSON.stringify({
         description,

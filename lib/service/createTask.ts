@@ -12,7 +12,7 @@ export async function createTask({
   rank?: string
 }) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/task-create`, {
+    const res = await fetch(`${process.env.VERCEL_URL}/api/task-create`, {
       method: "POST",
       body: JSON.stringify({
         title,

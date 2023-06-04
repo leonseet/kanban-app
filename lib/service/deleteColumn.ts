@@ -1,6 +1,6 @@
 export async function deleteColumn({ columnId }: { columnId: number }) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/column-delete`, {
+    const res = await fetch(`${process.env.VERCEL_URL}/api/column-delete`, {
       method: "POST",
       body: JSON.stringify({
         columnId,
