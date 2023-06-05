@@ -1,6 +1,6 @@
 export async function deleteBoard({ boardName, userId }: { boardName: string; userId: string }) {
   try {
-    const res = await fetch(`https://${process.env.VERCEL_URL}/api/board-delete`, {
+    const res = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/board-delete`, {
       method: "POST",
       body: JSON.stringify({
         boardName,

@@ -8,17 +8,20 @@ export async function updateBoardByTitle({
   userId: string
 }) {
   try {
-    const res = await fetch(`https://${process.env.VERCEL_URL}/api/board-update-by-title`, {
-      method: "POST",
-      body: JSON.stringify({
-        newBoardTitle,
-        oldBoardTitle,
-        userId,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    const res = await fetch(
+      `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/board-update-by-title`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          newBoardTitle,
+          oldBoardTitle,
+          userId,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
     if (res.ok) {
       return res.json()
     } else {

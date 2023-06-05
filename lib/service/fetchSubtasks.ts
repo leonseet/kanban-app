@@ -1,6 +1,6 @@
 export async function fetchSubtasks({ taskId }: { taskId: number }) {
   try {
-    const res = await fetch(`https://${process.env.VERCEL_URL}/api/subtask-fetch`, {
+    const res = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/subtask-fetch`, {
       method: "POST",
       body: JSON.stringify({
         taskId,
