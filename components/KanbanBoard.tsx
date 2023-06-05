@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useState } from "react"
+import { FC, use, useEffect, useState } from "react"
 import { Board, Column, Subtask, Task } from "@prisma/client"
 import EmptyBoard from "./EmptyBoard"
 import {
@@ -39,13 +39,27 @@ interface KanbanBoardProps {
 }
 
 const KanbanBoard: FC<KanbanBoardProps> = ({ board }) => {
+  const searchInput = useSelector((state: RootState) => state.taskFilter.searchInput)
   const [columns, setColumns] = useState<ColumnWithTasks[] | undefined>(board?.columns)
   const [activeId, setActiveId] = useState<number | string | null>(null)
   const [dragOverlayTask, setDragOverlayTask] = useState<TaskWithSubtasks | null>(null)
   const [dragOverlayColumn, setDragOverlayColumn] = useState<ColumnWithTasks | null>(null)
   const isTaskModalOpen = useSelector((state: RootState) => state.taskModal.isTaskModalOpen)
   const isSidebarOpen = useSelector((state: RootState) => state.toggleSidebar.isSidebarOpen)
+
   const router = useRouter()
+
+  useEffect(() => {
+    const filteredColumns = board?.columns?.map((column) => {
+      return {
+        ...column,
+        tasks: column.tasks.filter((task) => {
+          return task.title?.toLowerCase().includes(searchInput.toLowerCase())
+        }),
+      }
+    })
+    setColumns(filteredColumns)
+  }, [searchInput, board])
 
   const pointerSensor = useSensor(PointerSensor, {
     activationConstraint: {

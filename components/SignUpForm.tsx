@@ -1,6 +1,5 @@
 "use client"
 
-import { useSession } from "next-auth/react"
 import { useState, FC, useEffect } from "react"
 import { signIn } from "next-auth/react"
 import Link from "next/link"
@@ -29,7 +28,7 @@ const SignUpForm: FC = () => {
   const callbackUrl = searchParams.get("callbackUrl") || "/play"
   const { toast } = useToast()
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const { theme } = useTheme()
   const [isLoading, setIsLoading] = useState(false)
 
   const schema: ZodType<FormType> = z.object({
@@ -140,9 +139,6 @@ const SignUpForm: FC = () => {
               <p className="pl-3 text-sm text-red-500">{errors.password?.message}</p>
             )}
           </div>
-          {/* <Button edge="default" type="submit" size="default" className="w-full mt-5">
-            Create Account
-          </Button> */}
           {!isLoading ? (
             <Button edge="default" type="submit" size="default" className="w-full mt-5">
               Create Account

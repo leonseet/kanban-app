@@ -1,6 +1,5 @@
 "use client"
 
-import { useSession } from "next-auth/react"
 import { useState, FC, useEffect } from "react"
 import { signIn } from "next-auth/react"
 import Link from "next/link"
@@ -25,7 +24,7 @@ interface FormType {
 
 const LoginForm: FC = () => {
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const { theme } = useTheme()
   const [isLoading, setIsLoading] = useState(false)
 
   const router = useRouter()

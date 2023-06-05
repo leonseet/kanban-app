@@ -10,9 +10,20 @@ import NavItem from "./NavItem"
 import { MdOutlineSpaceDashboard } from "react-icons/md"
 import AvatarPopover from "./AvatarPopover"
 import { GoPlus } from "react-icons/go"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/app/redux/store"
 import { User } from "@prisma/client"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/ui/command"
+import { setSearchInput } from "@/app/redux/features/taskFilterSlice"
 
 const navInfos = [
   {
@@ -35,6 +46,12 @@ interface StickyBarProps {
 }
 
 const StickyBar: FC<StickyBarProps> = ({ user, board }) => {
+  const dispatch = useDispatch()
+
+  const onSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setSearchInput(e.target.value))
+  }
+
   const isSidebarOpen = useSelector((state: RootState) => state.toggleSidebar.isSidebarOpen)
   return (
     <div className="p-4 fixed left-0 bg-secondary z-20 right-0 border dark:border-b-gray-800 border-b-gray-200 border-1">
@@ -87,7 +104,10 @@ const StickyBar: FC<StickyBarProps> = ({ user, board }) => {
           </div>
         </div>
 
-        <div className="px-0 sm:px-8">
+        <div className="px-0 sm:px-8 flex gap-4 items-center">
+          <Command className="rounded-lg border shadow-md w-fit">
+            <CommandInput placeholder="Search tasks..." onChangeCapture={onSearchInputChange} />
+          </Command>
           <AvatarPopover user={user} />
         </div>
       </header>
