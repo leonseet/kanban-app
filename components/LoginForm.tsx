@@ -26,6 +26,7 @@ interface FormType {
 const LoginForm: FC = () => {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+  const [isLoading, setIsLoading] = useState(false)
 
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -44,6 +45,7 @@ const LoginForm: FC = () => {
   } = useForm<FormType>({ resolver: zodResolver(schema), mode: "all" })
 
   const handleSignIn = async (data: FormType) => {
+    setIsLoading(true)
     try {
       const email = data.email
       const password = data.password
@@ -62,15 +64,16 @@ const LoginForm: FC = () => {
           title: "Uh oh! Invalid email or password.",
           action: <ToastAction altText="Try again">Try again</ToastAction>,
         })
+        setIsLoading(false)
       }
     } catch (error: any) {
       console.log(error)
+      setIsLoading(false)
+    } finally {
     }
   }
 
   const loginWithGoogle = async () => {
-    // setIsLoading(true)
-
     try {
       await signIn("google", { callbackUrl: callbackUrl, redirect: true })
     } catch (error) {
@@ -80,9 +83,6 @@ const LoginForm: FC = () => {
         action: <ToastAction altText="Try again">Try again</ToastAction>,
       })
     }
-    // finally {
-    //   setIsLoading(false)
-    // }
   }
 
   useEffect(() => {
@@ -129,9 +129,21 @@ const LoginForm: FC = () => {
               <p className="pl-3 text-sm cursor-default text-red-500">{errors.password?.message}</p>
             )}
           </div>
-          <Button edge="default" type="submit" size="default" className="mt-5 w-full">
-            Log In
-          </Button>
+          {!isLoading ? (
+            <Button edge="default" type="submit" size="default" className="mt-5 w-full">
+              Log In
+            </Button>
+          ) : (
+            <Button
+              edge="default"
+              type="submit"
+              size="default"
+              loading="yes"
+              className="mt-5 w-full"
+            >
+              Log In
+            </Button>
+          )}
         </section>
 
         <section className="flex flex-col gap-4">

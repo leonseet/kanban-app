@@ -30,6 +30,7 @@ const SignUpForm: FC = () => {
   const { toast } = useToast()
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+  const [isLoading, setIsLoading] = useState(false)
 
   const schema: ZodType<FormType> = z.object({
     firstName: z.string().nonempty({ message: "First name is required" }),
@@ -45,6 +46,7 @@ const SignUpForm: FC = () => {
   } = useForm<FormType>({ resolver: zodResolver(schema), mode: "all" })
 
   const handleSignUp = async (data: FormType) => {
+    setIsLoading(true)
     try {
       const firstName = data.firstName
       const lastName = data.lastName
@@ -71,6 +73,7 @@ const SignUpForm: FC = () => {
           action: <ToastAction altText="Try again">Try again</ToastAction>,
         })
         console.log(await res.json())
+        setIsLoading(false)
       }
     } catch (error: any) {
       toast({
@@ -79,6 +82,7 @@ const SignUpForm: FC = () => {
         action: <ToastAction altText="Try again">Try again</ToastAction>,
       })
       console.log(error?.message)
+      setIsLoading(false)
     }
   }
 
@@ -136,9 +140,24 @@ const SignUpForm: FC = () => {
               <p className="pl-3 text-sm text-red-500">{errors.password?.message}</p>
             )}
           </div>
-          <Button edge="default" type="submit" size="default" className="w-full mt-5">
+          {/* <Button edge="default" type="submit" size="default" className="w-full mt-5">
             Create Account
-          </Button>
+          </Button> */}
+          {!isLoading ? (
+            <Button edge="default" type="submit" size="default" className="w-full mt-5">
+              Create Account
+            </Button>
+          ) : (
+            <Button
+              edge="default"
+              type="submit"
+              size="default"
+              loading="yes"
+              className="w-full mt-5"
+            >
+              Create Account
+            </Button>
+          )}
         </section>
       </form>
     </div>
