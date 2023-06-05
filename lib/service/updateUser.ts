@@ -10,7 +10,10 @@ export async function updateUser({
   newUser?: boolean
 }) {
   try {
-    const res = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/user-update`, {
+    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_ENV
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    const res = await fetch(`${baseUrl}/api/user-update`, {
       method: "POST",
       body: JSON.stringify({
         userId,

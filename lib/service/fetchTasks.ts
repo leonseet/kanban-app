@@ -1,6 +1,9 @@
 export async function fetchTasks({ columnId }: { columnId: number }) {
   try {
-    const res = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/task-fetch`, {
+    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_ENV
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    const res = await fetch(`${baseUrl}/api/task-fetch`, {
       method: "POST",
       body: JSON.stringify({
         columnId,

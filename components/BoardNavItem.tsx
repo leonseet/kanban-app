@@ -13,6 +13,7 @@ import { AiOutlineEdit } from "react-icons/ai"
 import { updateBoard } from "@/lib/service/updateBoard"
 import { updateBoardByTitle } from "@/lib/service/updateBoardByTitle"
 import stringToUrl from "@/lib/stringToUrl"
+import DeleteBoardPopover from "./DeleteBoardPopover"
 
 interface BoardNavItemProps {
   title: string
@@ -112,11 +113,7 @@ const BoardNavItem: FC<BoardNavItemProps> = ({ title, href, userId }) => {
             <AiOutlineEdit className="w-5 h-5 opacity-30 hover:opacity-100" />
           </button>
         )}
-        {href === boardName && (
-          <button onClick={onDeleteBoard}>
-            <X className="w-5 h-5 opacity-30 hover:opacity-100" />
-          </button>
-        )}
+        {href === boardName && <DeleteBoardPopover boardTitle={boardTitle} userId={userId} />}
       </div>
     </div>
   )
