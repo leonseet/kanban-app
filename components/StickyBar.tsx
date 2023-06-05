@@ -104,8 +104,8 @@ const StickyBar: FC<StickyBarProps> = ({ user, board }) => {
           </div>
         </div>
 
-        <div className="px-0 sm:px-8 flex gap-4 items-center">
-          <Command className="rounded-lg border shadow-md w-fit">
+        <div className="px-0 sm:px-8 flex gap-8 items-center">
+          <Command className="border border-input bg-transparent text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
             <CommandInput placeholder="Search tasks..." onChangeCapture={onSearchInputChange} />
           </Command>
           <AvatarPopover user={user} />
