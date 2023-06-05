@@ -13,7 +13,7 @@ import { signIn } from "next-auth/react"
 export default function Signup() {
   return (
     <main className="relative flex min-h-screen flex-col items-center p-24">
-      <DarkLightToggle className="absolute top-10 md:right-10" />
+      <DarkLightToggle className="absolute top-10" />
       <SignUpForm />
     </main>
   )
