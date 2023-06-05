@@ -8,10 +8,7 @@ export async function updateBoardByTitle({
   userId: string
 }) {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_ENV
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    const res = await fetch(`${baseUrl}/api/board-update-by-title`, {
+    const res = await fetch(`${window.location.origin}/api/board-update-by-title`, {
       method: "POST",
       body: JSON.stringify({
         newBoardTitle,

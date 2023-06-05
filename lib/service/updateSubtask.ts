@@ -14,10 +14,7 @@ export async function updateSubtask({
   checked?: boolean
 }) {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_ENV
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : `http://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    const res = await fetch(`${baseUrl}/api/subtask-update`, {
+    const res = await fetch(`${window.location.origin}/api/subtask-update`, {
       method: "POST",
       body: JSON.stringify({
         description,
