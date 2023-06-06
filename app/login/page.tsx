@@ -1,6 +1,8 @@
 import DarkLightToggleSkeleton from "@/components/DarkLightToggleSkeleton"
 import LoginForm from "@/components/LoginForm"
 import dynamic from "next/dynamic"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { AlertCircle } from "lucide-react"
 const DarkLightToggle = dynamic(() => import("@/components/DarkLightToggle"), {
   ssr: false,
   loading: () => <DarkLightToggleSkeleton className="absolute top-10 md:right-10" />,
@@ -16,6 +18,14 @@ export default async function Login() {
     <main className="relative flex min-h-screen flex-col items-center p-24">
       <DarkLightToggle className="absolute top-10" />
       <LoginForm />
+      <Alert className="bg-accent w-fit absolute sm:top-[14%] top-[11%] shadow-md">
+        <AlertCircle className="h-4 w-4" />
+        <AlertTitle>Demo Account Credentials</AlertTitle>
+        <AlertDescription className="mt-2">
+          <p>Email: demo@gmail.com</p>
+          <p>Password: password</p>
+        </AlertDescription>
+      </Alert>
     </main>
   )
 }
