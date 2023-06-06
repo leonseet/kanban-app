@@ -173,7 +173,8 @@ const TaskModal: FC<TaskModalProps> = ({
     for (const subtask of deletedSubtasks) {
       subtask.id && (await deleteSubtask({ subtaskId: subtask.id }))
     }
-    setOpenTaskModal(false)
+    setOpenTaskModal(!openTaskModal)
+    dispatch(setTaskModal(!isTaskModalOpen))
     setLoading(false)
   }
 

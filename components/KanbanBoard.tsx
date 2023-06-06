@@ -22,9 +22,10 @@ import { createColumn } from "@/lib/service/createColumn"
 import checkedCount from "@/lib/checkedCount"
 import { deleteColumn as deleteColumnService } from "@/lib/service/deleteColumn"
 import { useRouter } from "next/navigation"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "@/app/redux/store"
 import { ColumnWithTasks, TaskWithSubtasks, CustomSubtask } from "@/types"
+import { setTaskModal } from "@/app/redux/features/taskModalSlice"
 
 interface KanbanBoardProps {
   board:
@@ -47,7 +48,9 @@ const KanbanBoard: FC<KanbanBoardProps> = ({ board }) => {
   const isTaskModalOpen = useSelector((state: RootState) => state.taskModal.isTaskModalOpen)
   const isSidebarOpen = useSelector((state: RootState) => state.toggleSidebar.isSidebarOpen)
 
+  const dispatch = useDispatch()
   const router = useRouter()
+  console.log("isTaskModalOpen", isTaskModalOpen)
 
   useEffect(() => {
     const filteredColumns = board?.columns?.map((column) => {
@@ -77,11 +80,11 @@ const KanbanBoard: FC<KanbanBoardProps> = ({ board }) => {
     } else {
       setDragOverlayTask(e.active.data.current?.task)
     }
-    // console.log("handleDragStart", e)
+    console.log("handleDragStart", e)
   }
 
   const handleDragEnd = async (e: DragEndEvent) => {
-    // console.log("handleDragEnd", e)
+    console.log("handleDragEnd", e)
     const { active, over } = e
     const activeId = active.id
     const overId = over?.id
@@ -174,6 +177,7 @@ const KanbanBoard: FC<KanbanBoardProps> = ({ board }) => {
       }
     })
     setColumns(updatedColumns)
+    dispatch(setTaskModal(!isTaskModalOpen))
     router.refresh()
   }
 
