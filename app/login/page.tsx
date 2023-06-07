@@ -17,10 +17,10 @@ export default async function Login() {
   return (
     <main className="relative flex min-h-screen flex-col items-center p-24">
       <DarkLightToggle className="absolute top-10" />
-      <div className="absolute top-[13%] sm:top-[20%] flex flex-col items-center gap-4">
+      <div className="absolute top-[13%] sm:top-[16%] flex flex-col items-center gap-6">
         <Alert className="bg-accent w-fit shadow-md">
           <AlertCircle className="h-4 w-4" />
-          <AlertTitle>Demo Account Credentials</AlertTitle>
+          <AlertTitle>Sign up or use the following demo account</AlertTitle>
           <AlertDescription className="mt-2">
             <p>Email: demo@gmail.com</p>
             <p>Password: password</p>
