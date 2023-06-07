@@ -1,5 +1,7 @@
 # Kanban Web Application
 
+[![View Site - Kanban App](https://img.shields.io/badge/View_Site-Kanban_App-2ea44f)](https://kanban-app-leonseet.vercel.app/)
+
 An open source Kanban-style project management application, taking advantage of modern web technologies such as Next.js 13, Tailwind CSS, and PostgreSQL.
 
 ## About this project
