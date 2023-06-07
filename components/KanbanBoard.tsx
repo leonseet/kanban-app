@@ -50,7 +50,6 @@ const KanbanBoard: FC<KanbanBoardProps> = ({ board }) => {
 
   const dispatch = useDispatch()
   const router = useRouter()
-  console.log("isTaskModalOpen", isTaskModalOpen)
 
   useEffect(() => {
     const filteredColumns = board?.columns?.map((column) => {
@@ -80,11 +79,11 @@ const KanbanBoard: FC<KanbanBoardProps> = ({ board }) => {
     } else {
       setDragOverlayTask(e.active.data.current?.task)
     }
-    console.log("handleDragStart", e)
+    // console.log("handleDragStart", e)
   }
 
   const handleDragEnd = async (e: DragEndEvent) => {
-    console.log("handleDragEnd", e)
+    // console.log("handleDragEnd", e)
     const { active, over } = e
     const activeId = active.id
     const overId = over?.id
