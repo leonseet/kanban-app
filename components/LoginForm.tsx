@@ -93,8 +93,7 @@ const LoginForm: FC = () => {
   }
 
   return (
-    <div className="absolute top-[20%] flex items-center justify-center rounded-2xl bg-secondary p-12 shadow-2xl">
-      {/* <form className="flex w-[26rem] flex-col gap-8" onSubmit={handleSignIn}> */}
+    <div className=" flex items-center justify-center rounded-2xl bg-secondary p-12 shadow-2xl">
       <form
         onSubmit={handleSubmit(handleSignIn)}
         className="flex sm:w-[26rem] w-[17rem] flex-col gap-8"
