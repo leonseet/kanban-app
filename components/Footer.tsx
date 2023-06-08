@@ -1,6 +1,7 @@
 import { FC } from "react"
 import { HeartHandshake } from "lucide-react"
 import DarkLightToggle from "./DarkLightToggle"
+import Link from "next/link"
 
 interface FooterProps {}
 
@@ -11,50 +12,50 @@ const Footer: FC<FooterProps> = () => {
         <HeartHandshake className="w-6 h-6" />
         <p className="text-center text-sm leading-loose md:text-left">
           Built by{" "}
-          <a
-            href={process.env.GITHUB_URL}
+          <Link
+            href={process.env.GITHUB_URL ?? ""}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
             leonseet
-          </a>
+          </Link>
           . Hosted on{" "}
-          <a
-            href={process.env.VERCEL_URL}
+          <Link
+            href={process.env.VERCEL_URL ?? ""}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
             Vercel
-          </a>
+          </Link>
           . Inspired by{" "}
-          <a
-            href={process.env.SHADCN_URL}
+          <Link
+            href={process.env.SHADCN_URL ?? ""}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
             shadcn
-          </a>
+          </Link>
           . Illustrations by{" "}
-          <a
-            href={process.env.FRONTENDMENTOR_URL}
+          <Link
+            href={process.env.FRONTENDMENTOR_URL ?? ""}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
             FrontendMentor
-          </a>
+          </Link>
           . The source code is available on{" "}
-          <a
-            href={process.env.PROJECT_GITHUB_URL}
+          <Link
+            href={process.env.PROJECT_GITHUB_URL ?? ""}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
             GitHub
-          </a>
+          </Link>
           .
         </p>
       </div>

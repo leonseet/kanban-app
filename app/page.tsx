@@ -72,14 +72,14 @@ export default async function Home() {
             in to check out the app or explore the source code on GitHub.
           </p>
           <div className="flex gap-4">
-            <Link href="/login">
-              <Button size="lg">Get Started</Button>
-            </Link>
-            <a href={process.env.PROJECT_GITHUB_URL} target="_blank" rel="noreferrer">
-              <Button size="lg" variant="outline">
+            <Button size="lg">
+              <Link href="/login">Get Started</Link>
+            </Button>
+            <Button size="lg" variant="outline">
+              <Link href={process.env.PROJECT_GITHUB_URL ?? ""} target="_blank" rel="noreferrer">
                 GitHub
-              </Button>
-            </a>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -202,22 +202,22 @@ export default async function Home() {
             You can reach me at kiangyeow@hotmail.com or the following platforms.
           </p>
           <div className="flex gap-2">
-            <a
-              href={process.env.LINKEDIN_URL}
+            <Link
+              href={process.env.LINKEDIN_URL ?? ""}
               target="_blank"
               rel="noreferrer"
               className="rounded-sm bg-primary p-2 text-white"
             >
               <Linkedin className="w-4 h-4" />
-            </a>
-            <a
-              href={process.env.GITHUB_URL}
+            </Link>
+            <Link
+              href={process.env.GITHUB_URL ?? ""}
               target="_blank"
               rel="noreferrer"
               className="rounded-sm bg-primary p-2 text-white"
             >
               <Github className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
