@@ -2,6 +2,7 @@ import { FC } from "react"
 import { HeartHandshake } from "lucide-react"
 import DarkLightToggle from "./DarkLightToggle"
 import Link from "next/link"
+import { siteConfig } from "@/config/site"
 
 interface FooterProps {}
 
@@ -13,7 +14,7 @@ const Footer: FC<FooterProps> = () => {
         <p className="text-center text-sm leading-loose md:text-left">
           Built by{" "}
           <Link
-            href={process.env.GITHUB_URL ?? ""}
+            href={siteConfig.links.github}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
@@ -22,7 +23,7 @@ const Footer: FC<FooterProps> = () => {
           </Link>
           . Hosted on{" "}
           <Link
-            href={process.env.VERCEL_URL ?? ""}
+            href={siteConfig.links.vercel}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
@@ -31,7 +32,7 @@ const Footer: FC<FooterProps> = () => {
           </Link>
           . Inspired by{" "}
           <Link
-            href={process.env.SHADCN_URL ?? ""}
+            href={siteConfig.links.shadcn}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
@@ -40,7 +41,7 @@ const Footer: FC<FooterProps> = () => {
           </Link>
           . Illustrations by{" "}
           <Link
-            href={process.env.FRONTENDMENTOR_URL ?? ""}
+            href={siteConfig.links.frontendmentor}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
@@ -49,7 +50,7 @@ const Footer: FC<FooterProps> = () => {
           </Link>
           . The source code is available on{" "}
           <Link
-            href={process.env.PROJECT_GITHUB_URL ?? ""}
+            href={siteConfig.links.project_github}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"

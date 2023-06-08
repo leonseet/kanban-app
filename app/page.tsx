@@ -1,14 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import { getServerSession } from "next-auth"
-import { redirect } from "next/navigation"
 import { authOptions } from "./api/auth/[...nextauth]/route"
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import { HeartHandshake, Linkedin, Github } from "lucide-react"
+import { Linkedin, Github } from "lucide-react"
 import Link from "next/link"
-import DarkLightToggle from "@/components/DarkLightToggle"
 import { PrismaLogo } from "@/public"
 import Footer from "@/components/Footer"
+import { siteConfig } from "@/config/site"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
@@ -76,7 +74,7 @@ export default async function Home() {
               <Link href="/login">Get Started</Link>
             </Button>
             <Button size="lg" variant="outline">
-              <Link href={process.env.PROJECT_GITHUB_URL ?? ""} target="_blank" rel="noreferrer">
+              <Link href={siteConfig.links.project_github} target="_blank" rel="noreferrer">
                 GitHub
               </Link>
             </Button>
@@ -203,7 +201,7 @@ export default async function Home() {
           </p>
           <div className="flex gap-2">
             <Link
-              href={process.env.LINKEDIN_URL ?? ""}
+              href={siteConfig.links.linkedin}
               target="_blank"
               rel="noreferrer"
               className="rounded-sm bg-primary p-2 text-white"
@@ -211,7 +209,7 @@ export default async function Home() {
               <Linkedin className="w-4 h-4" />
             </Link>
             <Link
-              href={process.env.GITHUB_URL ?? ""}
+              href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
               className="rounded-sm bg-primary p-2 text-white"

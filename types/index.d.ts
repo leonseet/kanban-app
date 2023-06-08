@@ -48,3 +48,18 @@ export interface CustomSubtask {
   id?: number
   rank: string
 }
+
+export type SiteConfig = {
+  name: string
+  description: string
+  url: string
+  ogImage: string
+  links: {
+    project_github: string
+    github: string
+    linkedin: string
+    shadcn: string
+    vercel: string
+    frontendmentor: string
+  }
+}
