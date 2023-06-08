@@ -13,7 +13,7 @@ export default async function Login() {
         </Link>
       </div>
       <div className="flex-1">
-        <div className="flex flex-col gap-6 container items-center mt-10 sm:mt-32">
+        <div className="flex flex-col gap-6 container items-center mt-10 sm:mt-12">
           <Alert className="bg-accent w-fit shadow-md">
             <AlertCircle className="h-4 w-4" />
             <AlertTitle>Sign up or use the following demo account</AlertTitle>
