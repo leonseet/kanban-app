@@ -94,7 +94,7 @@ const SignUpForm: FC = () => {
   }
 
   return (
-    <div className="absolute top-[20%] flex items-center justify-center rounded-2xl bg-secondary p-12 shadow-2xl">
+    <div className="flex flex-col gap-6 container mt-10 sm:mt-80 items-center justify-center rounded-2xl bg-secondary p-12 shadow-2xl w-fit">
       {/* <form className="flex w-[26rem] flex-col gap-8" onSubmit={handleSignIn}> */}
       <form
         onSubmit={handleSubmit(handleSignUp)}

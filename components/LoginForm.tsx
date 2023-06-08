@@ -16,6 +16,7 @@ import { useForm } from "react-hook-form"
 import { ZodType, z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useTheme } from "next-themes"
+import Footer from "./Footer"
 
 interface FormType {
   email: string
