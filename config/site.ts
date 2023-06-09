@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
   ogImage: "",
   links: {
     baseurl: process.env.NEXT_PUBLIC_VERCEL_URL
-      ? "https://kanban-app-leonseet.vercel.app"
+      ? "https://kanban.leonseet.com"
       : "http://localhost:3000",
     project_github: "https://github.com/leonseet/kanban-app",
     github: "https://github.com/leonseet",
