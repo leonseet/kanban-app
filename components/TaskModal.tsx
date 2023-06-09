@@ -74,7 +74,7 @@ const TaskModal: FC<TaskModalProps> = ({
   }
 
   const onAddSubtask = async () => {
-    console.log("task", task)
+    // console.log("task", task)
     if (!task) {
       const newRank =
         subtasks.length === 0
@@ -179,6 +179,10 @@ const TaskModal: FC<TaskModalProps> = ({
   }
 
   const onOpenChange = () => {
+    if (!task) {
+      setSubtasks([])
+      setDeletedSubtasks([])
+    }
     setOpenTaskModal(!openTaskModal)
     dispatch(setTaskModal(!isTaskModalOpen))
   }
@@ -191,7 +195,7 @@ const TaskModal: FC<TaskModalProps> = ({
           <form onSubmit={handleSubmit(handleSubmitForm)} className="flex flex-col gap-4">
             <div className="flex items-center justify-between mb-4">
               <TextareaAutosize
-                {...register("taskTitle")}
+                {...register("taskTitle", { shouldUnregister: true })}
                 placeholder="Title"
                 className="font-bold bg-transparent w-9/12 focus:outline-none resize-none placeholder:font-bold"
                 maxLength={111}
@@ -210,7 +214,7 @@ const TaskModal: FC<TaskModalProps> = ({
               )}
             </div>
             <TextareaAutosize
-              {...register("taskDescription")}
+              {...register("taskDescription", { shouldUnregister: true })}
               placeholder="Description"
               className="text-secondary-foreground mb-4 bg-transparent focus:outline-none resize-none placeholder:text-secondary-foreground"
               maxLength={111}

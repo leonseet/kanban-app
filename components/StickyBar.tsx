@@ -68,6 +68,7 @@ const StickyBar: FC<StickyBarProps> = ({ user, board }) => {
                 isSidebarOpen ? "sm:hidden" : "sm:block border-r-gray-700 border-r-2 px-10"
               }`}
             />
+
             <h3
               className={`hidden sm:block truncate sm:text-2xl text-lg font-bold ${
                 isSidebarOpen ? "sm:ml-[19rem]" : "sm:ml-[2rem]"

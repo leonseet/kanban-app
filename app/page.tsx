@@ -10,25 +10,12 @@ import { siteConfig } from "@/config/site"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
-  // if (!session) {
-  //   redirect("/login")
-  // } else {
-  //   redirect("/kanban")
-  // }
 
   return (
     <div className="flex flex-col items-center min-h-screen">
-      {/* <header className="py-10 flex justify-between items-center min-w-[90rem]"> */}
       <header className="container z-40">
         <div className="flex h-10 items-center justify-between py-12">
           <div className="flex gap-8 text-secondary-foreground items-center justify-center">
-            {/* <Image
-            src="logo-light.svg"
-            width={1}
-            height={1}
-            alt="Kanban Logo"
-            className="w-28 h-auto mr-4"
-          /> */}
             <svg
               width="153"
               height="26"
