@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site"
+
 export async function createSubtask({
   description,
   checked = false,
@@ -10,7 +12,7 @@ export async function createSubtask({
   rank: string
 }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/subtask-create`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/subtask-create`, {
       method: "POST",
       body: JSON.stringify({
         description,

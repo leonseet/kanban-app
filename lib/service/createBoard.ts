@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site"
+
 export async function createBoard({
   userId,
   title,
@@ -8,7 +10,7 @@ export async function createBoard({
   rank: string
 }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/board-create`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/board-create`, {
       method: "POST",
       body: JSON.stringify({
         userId,

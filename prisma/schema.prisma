@@ -1,8 +1,8 @@
 datasource db {
-  provider          = "postgresql"
-  url               = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
-  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  // directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  // shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
 generator client {
@@ -57,20 +57,11 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-// model UserCredential {
-//   id        Int     @id @default(autoincrement())
-//   lastName  String
-//   firstName String
-//   email     String  @unique
-//   password  String
-//   boards    Board[]
-// }
-
 model Board {
   id        Int      @id @default(autoincrement())
   title     String
   userId    String
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   rank      String
   createdAt DateTime @default(now())
   columns   Column[]
@@ -83,7 +74,7 @@ model Column {
   id        Int      @id @default(autoincrement())
   title     String?
   boardId   Int
-  board     Board?   @relation(fields: [boardId], references: [id])
+  board     Board?   @relation(fields: [boardId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   tasks     Task[]
   rank      String
@@ -98,7 +89,7 @@ model Task {
   status      String?
   columnId    Int
   rank        String
-  column      Column    @relation(fields: [columnId], references: [id])
+  column      Column    @relation(fields: [columnId], references: [id], onDelete: Cascade)
   createdAt   DateTime  @default(now())
   subtasks    Subtask[]
 
@@ -110,7 +101,7 @@ model Subtask {
   description String?
   checked     Boolean  @default(false)
   taskId      Int
-  task        Task     @relation(fields: [taskId], references: [id])
+  task        Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
   createdAt   DateTime @default(now())
   rank        String
 

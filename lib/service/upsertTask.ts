@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site"
+
 export async function upsertTask({
   title,
   description,
@@ -14,7 +16,7 @@ export async function upsertTask({
   rank?: string
 }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/task-upsert`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/task-upsert`, {
       method: "POST",
       body: JSON.stringify({
         title,

@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site"
+
 export async function createTask({
   title,
   description,
@@ -12,7 +14,7 @@ export async function createTask({
   rank?: string
 }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/task-create`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/task-create`, {
       method: "POST",
       body: JSON.stringify({
         title,

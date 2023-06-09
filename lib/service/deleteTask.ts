@@ -1,6 +1,8 @@
+import { siteConfig } from "@/config/site"
+
 export async function deleteTask({ taskId }: { taskId: number }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/task-delete`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/task-delete`, {
       method: "POST",
       body: JSON.stringify({
         taskId,

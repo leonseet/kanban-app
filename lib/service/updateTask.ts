@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site"
+
 export async function updateTask({
   title,
   description,
@@ -14,7 +16,7 @@ export async function updateTask({
   rank?: string
 }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/task-update`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/task-update`, {
       method: "POST",
       body: JSON.stringify({
         title,

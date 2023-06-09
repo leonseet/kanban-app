@@ -1,6 +1,8 @@
+import { siteConfig } from "@/config/site"
+
 export async function deleteColumn({ columnId }: { columnId: number }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/column-delete`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/column-delete`, {
       method: "POST",
       body: JSON.stringify({
         columnId,

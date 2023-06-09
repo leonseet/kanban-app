@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site"
+
 export async function updateColumn({
   columnId,
   title,
@@ -12,7 +14,7 @@ export async function updateColumn({
   rank?: string
 }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/column-update`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/column-update`, {
       method: "POST",
       body: JSON.stringify({
         columnId,

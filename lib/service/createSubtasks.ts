@@ -1,8 +1,9 @@
+import { siteConfig } from "@/config/site"
 import { CustomSubtask } from "@/types"
 
 export async function createSubtasks({ subtasks }: { subtasks: CustomSubtask[] }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/subtasks-create`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/subtasks-create`, {
       method: "POST",
       body: JSON.stringify({ subtasks }),
       headers: {

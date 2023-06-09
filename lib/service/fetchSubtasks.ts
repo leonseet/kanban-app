@@ -1,6 +1,8 @@
+import { siteConfig } from "@/config/site"
+
 export async function fetchSubtasks({ taskId }: { taskId: number }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/subtask-fetch`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/subtask-fetch`, {
       method: "POST",
       body: JSON.stringify({
         taskId,

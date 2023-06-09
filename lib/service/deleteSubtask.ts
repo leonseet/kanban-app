@@ -1,6 +1,8 @@
+import { siteConfig } from "@/config/site"
+
 export async function deleteSubtask({ subtaskId }: { subtaskId: number }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/subtask-delete`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/subtask-delete`, {
       method: "POST",
       body: JSON.stringify({
         subtaskId,

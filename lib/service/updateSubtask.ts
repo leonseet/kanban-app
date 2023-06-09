@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site"
+
 export async function updateSubtask({
   description,
   status,
@@ -14,7 +16,7 @@ export async function updateSubtask({
   checked?: boolean
 }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/subtask-update`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/subtask-update`, {
       method: "POST",
       body: JSON.stringify({
         description,

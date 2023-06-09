@@ -1,6 +1,8 @@
+import { siteConfig } from "@/config/site"
+
 export async function deleteBoard({ boardName, userId }: { boardName: string; userId: string }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/board-delete`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/board-delete`, {
       method: "POST",
       body: JSON.stringify({
         boardName,

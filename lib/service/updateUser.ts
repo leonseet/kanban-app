@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site"
+
 export async function updateUser({
   userId,
   name,
@@ -10,7 +12,7 @@ export async function updateUser({
   newUser?: boolean
 }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/user-update`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/user-update`, {
       method: "POST",
       body: JSON.stringify({
         userId,

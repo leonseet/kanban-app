@@ -55,6 +55,7 @@ export type SiteConfig = {
   url: string
   ogImage: string
   links: {
+    baseurl: string
     project_github: string
     github: string
     linkedin: string

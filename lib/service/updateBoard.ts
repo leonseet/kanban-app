@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site"
+
 export async function updateBoard({
   boardId,
   title,
@@ -10,7 +12,7 @@ export async function updateBoard({
   rank: string
 }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/board-update`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/board-update`, {
       method: "POST",
       body: JSON.stringify({
         boardId,

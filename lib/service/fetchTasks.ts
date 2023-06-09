@@ -1,6 +1,8 @@
+import { siteConfig } from "@/config/site"
+
 export async function fetchTasks({ columnId }: { columnId: number }) {
   try {
-    const res = await fetch(`${window.location.origin}/api/task-fetch`, {
+    const res = await fetch(`${siteConfig.links.baseurl}/api/task-fetch`, {
       method: "POST",
       body: JSON.stringify({
         columnId,
