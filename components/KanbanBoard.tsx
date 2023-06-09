@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, use, useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { Board, Column, Subtask, Task } from "@prisma/client"
 import EmptyBoard from "./EmptyBoard"
 import {
@@ -181,7 +181,7 @@ const KanbanBoard: FC<KanbanBoardProps> = ({ board }) => {
   }
 
   const addSubtask = async ({ subtask }: { subtask: CustomSubtask }) => {
-    console.log("subtask", subtask)
+    // console.log("subtask", subtask)
     const { taskId } = subtask
     const updatedColumns = columns?.map((column) => {
       return {
