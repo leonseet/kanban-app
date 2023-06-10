@@ -25,7 +25,7 @@ export default async function Login() {
           <LoginForm />
         </div>
       </div>
-      <footer className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+      <footer className="container">
         <Footer />
       </footer>
     </main>

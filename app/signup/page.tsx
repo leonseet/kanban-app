@@ -11,7 +11,7 @@ export default function Signup() {
       <div className="flex-1">
         <SignUpForm />
       </div>
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+      <div className="container">
         <Footer />
       </div>
     </main>
