@@ -30,7 +30,7 @@ const DynamicTextArea: FC<DynamicTextAreaProps> = ({ column }) => {
   return (
     <TextareaAutosize
       placeholder="e.g. Todo"
-      className="font-semibold text-secondary-foreground tracking-widest md:tracking-[.2em] placeholder:text-secondary-foreground placeholder:opacity-30 bg-transparent w-fit focus:outline-none resize-none placeholder:font-semibold"
+      className="font-heading text-secondary-foreground tracking-widest md:tracking-[.2em] placeholder:text-secondary-foreground placeholder:opacity-30 bg-transparent w-fit focus:outline-none resize-none placeholder:font-semibold"
       maxLength={30}
       value={textInput}
       onChange={(e) => handleOnChange({ e })}

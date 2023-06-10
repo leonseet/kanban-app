@@ -43,9 +43,10 @@ const navInfos = [
 interface StickyBarProps {
   user: User
   board: string | ""
+  boards: { rank: string; id: number; title: string; userId: string }[]
 }
 
-const StickyBar: FC<StickyBarProps> = ({ user, board }) => {
+const StickyBar: FC<StickyBarProps> = ({ user, board, boards }) => {
   const dispatch = useDispatch()
 
   const onSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,7 +71,7 @@ const StickyBar: FC<StickyBarProps> = ({ user, board }) => {
             />
 
             <h3
-              className={`hidden sm:block truncate sm:text-2xl text-lg font-bold ${
+              className={`hidden sm:block truncate sm:text-2xl text-lg font-heading ${
                 isSidebarOpen ? "sm:ml-[19rem]" : "sm:ml-[2rem]"
               } `}
             >
@@ -78,16 +79,16 @@ const StickyBar: FC<StickyBarProps> = ({ user, board }) => {
             </h3>
             <Dialog>
               <DialogTrigger className="sm:hidden flex gap-4 font-semibold items-center justify-center">
-                <p>Platform Launch</p>
+                <p>{hyphenToSpace({ inputString: board })}</p>
                 <RiArrowDropDownLine className="-ml-4 w-8 h-8 text-[#5046BB] sm:hidden" />
               </DialogTrigger>
               <DialogContent className="w-11/12 px-0 rounded-lg border-0 bg-secondary flex flex-col">
                 <p className="px-6 mb-2 tracking-[0.2em] text-md font-semibold text-secondary-foreground">
-                  ALL BOARDS (3)
+                  ALL BOARDS ({boards?.length || 0})
                 </p>
                 <nav className="flex flex-col gap-2">
-                  {navInfos.map(({ title, href }) => (
-                    <NavItem key={title} title={title} href={href}>
+                  {boards.map(({ title }) => (
+                    <NavItem key={title} title={title} href={stringToUrl({ inputString: title })}>
                       <MdOutlineSpaceDashboard className="w-6 h-6" />
                     </NavItem>
                   ))}
@@ -106,7 +107,7 @@ const StickyBar: FC<StickyBarProps> = ({ user, board }) => {
         </div>
 
         <div className="px-0 sm:px-8 flex gap-8 items-center">
-          <Command className="border border-input bg-transparent text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+          <Command className="hidden sm:block border border-input bg-transparent text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
             <CommandInput placeholder="Search tasks..." onChangeCapture={onSearchInputChange} />
           </Command>
           <AvatarPopover user={user} />

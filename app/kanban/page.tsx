@@ -80,7 +80,7 @@ export default async function Kanban({ searchParams }: { searchParams: { board?:
     <div className="h-screen overflow-hidden overflow-x-scroll scrollbar-hide">
       {/* <Preloader board={board} /> */}
       {/* Stickybar */}
-      {user && <StickyBar user={user} board={searchParams.board ?? ""} />}
+      {user && <StickyBar user={user} board={searchParams.board ?? ""} boards={boards} />}
       <div className="scrollbar-hide h-screen flex overflow-scroll ml-6">
         {/* Sidebar */}
         {session?.user?.id && <SideBar boards={boards} userId={session?.user?.id} />}
