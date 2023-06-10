@@ -17,8 +17,8 @@ const LandingMain: FC<LandingMainProps> = () => {
             An Interactive Kanban Board Built with Next.js 13
           </h1>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-            I'm building a Kanban web application with Next.js 13 using the latest tech stack. Log
-            in to check out the app or explore the source code on GitHub.
+            I'm building a Kanban web application with Next.js 13 using the latest tech stack. Login
+            to check out the app or explore the source code on GitHub.
           </p>
           <div className="flex gap-4">
             <Button size="lg">
